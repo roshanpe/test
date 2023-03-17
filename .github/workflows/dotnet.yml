@@ -19,8 +19,7 @@ jobs:
     - name: Determine Version
       uses: gittools/actions/gitversion/execute@v0
       id:   gitversion # id to later be referenced
-      with:
-       useConfigFile: true
+     
 
     - name: Display GitVersion outputs (step output)
       run: |
