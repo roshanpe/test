@@ -17,18 +17,15 @@ jobs:
     steps:
     
       - name: Git Version
-      # You may pin to the exact commit or the version.
-      # uses: codacy/git-version@fa06788276d7492a2af01662649696d249ecf4cb
-      uses: codacy/git-version@2.4.0
-      with:
-        # The name of the release branch
-        release-branch: # default is master
-        # The name of the dev branch
-        dev-branch: # default is dev
-        # The prefix to use in the version
-        prefix: # optional
-        # The paths to be used to calculate changes (comma-separated)
-        log-paths: # optional, default is ./
+        id: version
+        uses: codacy/git-version@2.7.1
+      
+      - name: Use the version
+        run: |
+          echo ${{ steps.version.outputs.version }}
+      - name: Use the previous version
+        run: |
+          echo ${{ steps.version.outputs.previous-version }}
     
       - uses: actions/checkout@v3
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
