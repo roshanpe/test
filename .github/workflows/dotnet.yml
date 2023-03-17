@@ -20,7 +20,7 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
-        run: dotnet restore ../TestApp/TestApp.sln
+        run: dotnet restore TestApp/TestApp.sln
       - name: Build
-        run: dotnet build ../TestApp/TestApp.sln --configuration Release --no-restore
+        run: dotnet build TestApp/TestApp.sln --configuration Release --no-restore
       
