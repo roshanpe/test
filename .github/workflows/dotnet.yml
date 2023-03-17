@@ -16,10 +16,7 @@ jobs:
        versionSpec: '5.x'
        preferLatestVersion: true
        
-    - name: Determine Version
-      id:   gitversion # id to later be referenced
-      with:
-       useConfigFile: true
+    
 
     - name: Display GitVersion outputs (step output)
       run: |
